@@ -30,5 +30,5 @@ public class GrabbablePlacer : MonoBehaviour
             placeable.transform.eulerAngles = new Vector3(0,0,0);
             placeable.GetComponent<XRGrabInteractable>().enabled = false;
         }
-    }
+    } 
 }
