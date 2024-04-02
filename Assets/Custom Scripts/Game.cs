@@ -16,6 +16,15 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     public void PressureChange(int amount)
     {
+        if ((Pressure + amount) < 0)
+        {
+            Pressure = 0;
+        }
         Pressure += amount;
+    }
+
+    public void PressureReset()
+    {
+        Pressure = 0;
     }
 }

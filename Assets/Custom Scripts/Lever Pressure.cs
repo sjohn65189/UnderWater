@@ -22,6 +22,22 @@ public class LeverPressure : MonoBehaviour
             Game.Instance.PressureChange(Consts.PressureValues.pressureAddLow);
             hasReset = false;
         }
+        else if (other.CompareTag(Consts.Tags.pressureAddSecond) && hasReset)
+        {
+            Game.Instance.PressureChange(Consts.PressureValues.pressureAddHigh);
+        }
+        else if (other.CompareTag(Consts.Tags.pressureReducer) && hasReset)
+        {
+            Game.Instance.PressureChange(Consts.PressureValues.pressureReduce);
+        }
+        else if (other.CompareTag(Consts.Tags.pressureMult) && hasReset)
+        {
+            Game.Instance.PressureChange(Game.Instance.Pressure);
+        }
+        else if (other.CompareTag(Consts.Tags.pressureReset) && hasReset)
+        {
+            Game.Instance.PressureReset();
+        }
     }
 
     private void OnTriggerExit(Collider other)
