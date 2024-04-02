@@ -21,6 +21,11 @@ public class Game : MonoBehaviour
             Pressure = 0;
         }
         Pressure += amount;
+
+        if (Pressure == 55)
+        {
+            print("Puzzle complete");
+        }
     }
 
     public void PressureReset()
