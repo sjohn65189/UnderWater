@@ -35,6 +35,24 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GuageDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f5311fa-4699-4423-882b-59bb7d9e5fa8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GuageReset"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b5f479b-ff42-41d2-a83c-f2c2d749ffa1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +66,28 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""action"": ""GuageUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59a61521-3c5f-43a5-abc6-047afdf9111e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GuageDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c13c7a5b-d72a-4652-b571-8003f0733d89"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GuageReset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +97,8 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
         // Default
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         m_Default_GuageUp = m_Default.FindAction("GuageUp", throwIfNotFound: true);
+        m_Default_GuageDown = m_Default.FindAction("GuageDown", throwIfNotFound: true);
+        m_Default_GuageReset = m_Default.FindAction("GuageReset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +161,15 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Default;
     private List<IDefaultActions> m_DefaultActionsCallbackInterfaces = new List<IDefaultActions>();
     private readonly InputAction m_Default_GuageUp;
+    private readonly InputAction m_Default_GuageDown;
+    private readonly InputAction m_Default_GuageReset;
     public struct DefaultActions
     {
         private @KeyboardInput m_Wrapper;
         public DefaultActions(@KeyboardInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @GuageUp => m_Wrapper.m_Default_GuageUp;
+        public InputAction @GuageDown => m_Wrapper.m_Default_GuageDown;
+        public InputAction @GuageReset => m_Wrapper.m_Default_GuageReset;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +182,12 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
             @GuageUp.started += instance.OnGuageUp;
             @GuageUp.performed += instance.OnGuageUp;
             @GuageUp.canceled += instance.OnGuageUp;
+            @GuageDown.started += instance.OnGuageDown;
+            @GuageDown.performed += instance.OnGuageDown;
+            @GuageDown.canceled += instance.OnGuageDown;
+            @GuageReset.started += instance.OnGuageReset;
+            @GuageReset.performed += instance.OnGuageReset;
+            @GuageReset.canceled += instance.OnGuageReset;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -143,6 +195,12 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
             @GuageUp.started -= instance.OnGuageUp;
             @GuageUp.performed -= instance.OnGuageUp;
             @GuageUp.canceled -= instance.OnGuageUp;
+            @GuageDown.started -= instance.OnGuageDown;
+            @GuageDown.performed -= instance.OnGuageDown;
+            @GuageDown.canceled -= instance.OnGuageDown;
+            @GuageReset.started -= instance.OnGuageReset;
+            @GuageReset.performed -= instance.OnGuageReset;
+            @GuageReset.canceled -= instance.OnGuageReset;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -163,5 +221,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
     public interface IDefaultActions
     {
         void OnGuageUp(InputAction.CallbackContext context);
+        void OnGuageDown(InputAction.CallbackContext context);
+        void OnGuageReset(InputAction.CallbackContext context);
     }
 }

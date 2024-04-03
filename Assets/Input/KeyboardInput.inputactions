@@ -13,6 +13,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GuageDown",
+                    "type": "Button",
+                    "id": "9f5311fa-4699-4423-882b-59bb7d9e5fa8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GuageReset",
+                    "type": "Button",
+                    "id": "5b5f479b-ff42-41d2-a83c-f2c2d749ffa1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -24,6 +42,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "GuageUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59a61521-3c5f-43a5-abc6-047afdf9111e",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GuageDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c13c7a5b-d72a-4652-b571-8003f0733d89",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GuageReset",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
