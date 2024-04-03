@@ -12,6 +12,9 @@ TagManager:
   - PressureBoxReduce
   - PressureBoxMult
   - PressureBoxReset
+  - Lock
+  - Light
+  - Button
   layers:
   - Default
   - TransparentFX
