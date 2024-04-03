@@ -8,6 +8,10 @@ TagManager:
   - PressureBox
   - Placeable
   - Receptacle
+  - PressureBoxHigh
+  - PressureBoxReduce
+  - PressureBoxMult
+  - PressureBoxReset
   layers:
   - Default
   - TransparentFX

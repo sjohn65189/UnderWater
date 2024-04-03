@@ -1,0 +1,34 @@
+{
+    "name": "KeyboardInput",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "1e5957d3-d710-465f-9966-acf14217a3aa",
+            "actions": [
+                {
+                    "name": "GuageUp",
+                    "type": "Button",
+                    "id": "693c69db-de9d-41de-b6aa-88759e3c7033",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "829fbcf7-fa52-4b2f-b3b7-56a3857f5c41",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GuageUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
