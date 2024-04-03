@@ -19,8 +19,11 @@ public class Game : MonoBehaviour
         if ((Pressure + amount) < 0)
         {
             Pressure = 0;
+        }  else
+        {
+            Pressure += amount;
         }
-        Pressure += amount;
+
 
         if (Pressure == 55)
         {
