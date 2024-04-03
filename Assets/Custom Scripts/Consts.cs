@@ -11,6 +11,7 @@ public static class Consts
         public const string pressureReducer = "PressureBoxReduce";
         public const string pressureReset = "PressureBoxReset";
         public const string pressureMult = "PressureBoxMult";
+        public const string LOCK = "Lock";
     }
 
     public static class PressureValues
