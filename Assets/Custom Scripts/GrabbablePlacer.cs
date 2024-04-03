@@ -57,6 +57,7 @@ public class GrabbablePlacer : MonoBehaviour
                     placeable1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     placeable1.transform.eulerAngles = new Vector3(0, 0, 0);
                     placeable1.GetComponent<XRGrabInteractable>().enabled = false;
+                    hitbox1.GetComponent<ParticleSystem>().Play();
                 }
                 else
                 {
