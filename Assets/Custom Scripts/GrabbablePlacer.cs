@@ -57,6 +57,7 @@ public class GrabbablePlacer : MonoBehaviour
                     placeable1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     placeable1.transform.eulerAngles = new Vector3(0, 0, 0);
                     placeable1.GetComponent<XRGrabInteractable>().enabled = false;
+                    Game.Instance.ped1 = true;
                 }
                 else
                 {
@@ -77,6 +78,7 @@ public class GrabbablePlacer : MonoBehaviour
                     placeable2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     placeable2.transform.eulerAngles = new Vector3(0, 0, 0);
                     placeable2.GetComponent<XRGrabInteractable>().enabled = false;
+                    Game.Instance.ped2 = true;
                 }
                 else
                 {
@@ -97,6 +99,7 @@ public class GrabbablePlacer : MonoBehaviour
                     placeable3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     placeable3.transform.eulerAngles = new Vector3(0, 0, 0);
                     placeable3.GetComponent<XRGrabInteractable>().enabled = false;
+                    Game.Instance.ped3 = true;
                 }
                 else
                 {
@@ -106,6 +109,12 @@ public class GrabbablePlacer : MonoBehaviour
                     valid = true;
                 }
             }
+        }
+        print(Game.Instance.ped1 + " " + Game.Instance.ped2 + " " + Game.Instance.ped3);
+        // checks if puzzle is completed so the pressure puzzle will unlock
+        if (Game.Instance.ped1 & Game.Instance.ped2 & Game.Instance.ped3)
+        {
+            Game.Instance.UnlockPressure();
         }
     } 
 }

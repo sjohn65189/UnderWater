@@ -14,12 +14,20 @@ public class Game : MonoBehaviour
 
     public GameObject DrainDoor;
 
+    public bool lockPressure { get; private set; }
+
+    // needed global game variables or else i got errors in the grabbable code.
+    public bool ped1 = false;
+    public bool ped2 = false;
+    public bool ped3 = false;
+
 
     private void Awake()
     {
         Instance = this;
         input = new();
         input.Enable();
+        lockPressure = true;
 
         // if(Game.Instance.input.Default.GuageUp.WasPressedThisFrame()) /*do function*/ ;
     }
@@ -43,5 +51,12 @@ public class Game : MonoBehaviour
     public void PressureReset()
     {
         Pressure = 0;
+    }
+
+    // enables the pressure puzzle when the broken/repair puzzle is completed
+    public void UnlockPressure()
+    {
+        lockPressure = false;
+        print("Pressure is unlocked!");
     }
 }
