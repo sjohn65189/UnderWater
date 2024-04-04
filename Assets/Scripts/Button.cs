@@ -4,24 +4,48 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    private Light postLight;
+    public GameObject button;
+//    GameObject presser;
+//    bool isPressed;
+//    private Light postLight;
     // Start is called before the first frame update
     void Start()
     {
-        postLight = GetComponent<Light>();
+//        postLight = GetComponent<Light>();
+//        isPressed = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MoveDown()
     {
-        
+        button.transform.localPosition = new Vector3(0, -0.7f, 0);
     }
 
+    public void MoveUp() 
+    {
+        button.transform.localPosition = new Vector3(0, -1.3f, 0);
+
+    }
+/*
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Button"))
+        if (!isPressed)
         {
+            button.transform.localPosition = new Vector3(0, -0.7f, 0);
+            presser = other.gameObject;
             postLight.enabled = true;
+            isPressed = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == presser)
+        {
+            button.transform.localPosition = new Vector3(0, -1.3f, 0);
+            presser = other.gameObject;
+            postLight.enabled = false;
+            isPressed = false;
+        }
+    }
+*/
 }
