@@ -5,12 +5,12 @@ public class GrabbablePlacer : MonoBehaviour
 {
     public int pedestalNum;
     private GameObject invalidTxt;
-    private float timer = 0.0001f;
+    private float timer = 0f;
     private bool valid = false;
 
     private void Awake()
     {
-        invalidTxt = GameObject.Find("[] HUD Info []");
+        invalidTxt = GameObject.Find("[] HUD Wrong Spot []");
     }
 
     // Start is called before the first frame update
@@ -38,26 +38,25 @@ public class GrabbablePlacer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var hitbox1 = GameObject.Find("Pedestal Hitbox");
-        var hitbox2 = GameObject.Find("Pedestal Hitbox (1)");
-        var hitbox3 = GameObject.Find("Pedestal Hitbox (2)");
+        var hitbox1 = GameObject.Find("Spot1Hitbox");
+        var hitbox2 = GameObject.Find("Spot2Hitbox");
+        var hitbox3 = GameObject.Find("Spot3Hitbox");
 
-        var placeable1 = GameObject.Find("Item1");
-        var placeable2 = GameObject.Find("Item2");
-        var placeable3 = GameObject.Find("Item3");
+        var placeable1 = GameObject.Find("Piece1");
+        var placeable2 = GameObject.Find("Piece2");
+        var placeable3 = GameObject.Find("Piece3");
         
         // need to add more else if statements based on how many placement locations there are.
         if (pedestalNum == 1)
         {
             if (other.CompareTag("Placeable"))
             {
-                if (other.name == "Item1")
+                if (other.name == "Piece1")
                 {
                     placeable1.transform.position = hitbox1.transform.position;
                     placeable1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                     placeable1.transform.eulerAngles = new Vector3(0, 0, 0);
                     placeable1.GetComponent<XRGrabInteractable>().enabled = false;
-                    hitbox1.GetComponent<ParticleSystem>().Play();
                 }
                 else
                 {
@@ -72,7 +71,7 @@ public class GrabbablePlacer : MonoBehaviour
         {
             if (other.CompareTag("Placeable"))
             {
-                if (other.name == "Item2")
+                if (other.name == "Piece2")
                 {
                     placeable2.transform.position = hitbox2.transform.position;
                     placeable2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -92,7 +91,7 @@ public class GrabbablePlacer : MonoBehaviour
         {
             if (other.CompareTag("Placeable"))
             {
-                if (other.name == "Item3")
+                if (other.name == "Piece3")
                 {
                     placeable3.transform.position = hitbox3.transform.position;
                     placeable3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
