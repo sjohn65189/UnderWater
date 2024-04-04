@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Game : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Game : MonoBehaviour
     public static Game Instance { get; private set; }
 
     public int Pressure { get; private set; }
+
+    public GameObject DrainDoor;
 
 
     private void Awake()
@@ -31,10 +34,9 @@ public class Game : MonoBehaviour
             Pressure += amount;
         }
 
-
         if (Pressure == 55)
         {
-            print("Puzzle complete");
+            DrainDoor.SetActive(false);
         }
     }
 

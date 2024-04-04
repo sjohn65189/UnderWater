@@ -15,6 +15,7 @@ TagManager:
   - Lock
   - Light
   - Button
+  - drainDoor
   layers:
   - Default
   - TransparentFX

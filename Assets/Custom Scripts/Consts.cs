@@ -12,6 +12,7 @@ public static class Consts
         public const string pressureReset = "PressureBoxReset";
         public const string pressureMult = "PressureBoxMult";
         public const string LOCK = "Lock";
+        public const string exit = "drainDoor";
     }
 
     public static class PressureValues
