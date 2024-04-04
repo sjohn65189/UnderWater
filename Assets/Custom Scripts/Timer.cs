@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentTime = new(0, 00, 10);
+        CurrentTime = new(0, 30, 00);
         State = TimerStateType.Off;
         txt = GetComponent<TextMeshPro>();
         
