@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour
 {
-    public GameObject keyLock;
+    public GameObject Door;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +13,6 @@ public class Lock : MonoBehaviour
 
     public void Open()
     {
-        keyLock.SetActive(false);
+        Door.SetActive(false);
     }
 }
