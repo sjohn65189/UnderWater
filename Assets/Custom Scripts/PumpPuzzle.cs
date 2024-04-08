@@ -8,6 +8,9 @@ public class PumpPuzzle : MonoBehaviour
     public FluidIndicator fluidA;
     public FluidIndicator fluidB;
     public FluidIndicator fluidC;
+    public FluidIndicator fluidD;
+    public FluidIndicator fluidE;
+    public FluidIndicator[] column = new FluidIndicator[5];
 
     private bool animationActive = false;
     private float ani_tot_time = 0;
@@ -18,9 +21,12 @@ public class PumpPuzzle : MonoBehaviour
     private FluidIndicator receive;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        column[0] = fluidA;
+        column[1] = fluidB;
+        column[2] = fluidC;
+        column[3] = fluidD;
+        column[4] = fluidE;
     }
 
     // Update is called once per frame
@@ -44,32 +50,29 @@ public class PumpPuzzle : MonoBehaviour
         }
 
         if (Game.Instance.input.Default.AtoB.WasPressedThisFrame()) {
-            take = fluidA;
-            receive = fluidB;
+            MoveWater(column[0], column[1]);
         }
         else if (Game.Instance.input.Default.AtoC.WasPressedThisFrame()) {
-            take = fluidA;
-            receive = fluidC;
+            MoveWater(column[0], column[2]);
         }
         else if (Game.Instance.input.Default.BtoA.WasPressedThisFrame()) {
-            take = fluidB;
-            receive = fluidA;
+            MoveWater(column[1], column[0]);
         }
         else if (Game.Instance.input.Default.BtoC.WasPressedThisFrame()) {
-            take = fluidB;
-            receive = fluidC;
+            MoveWater(column[1], column[2]);
         }
         else if (Game.Instance.input.Default.CtoA.WasPressedThisFrame()) {
-            take = fluidC;
-            receive = fluidA;
+            MoveWater(column[2], column[0]);
         }
         else if (Game.Instance.input.Default.CtoB.WasPressedThisFrame()) {
-            take = fluidC;
-            receive = fluidB;
+            MoveWater(column[2], column[1]);
         }
-        else {
-            return;
-        }
+    }
+
+    public void MoveWater(FluidIndicator take, FluidIndicator receive) {
+
+        this.take = take;
+        this.receive = receive;
 
         int totalTransport = take.GetLevel();
         int totalAvailable = receive.GetEmptySpace();
@@ -78,7 +81,7 @@ public class PumpPuzzle : MonoBehaviour
         if (totalTransport > totalAvailable) { amount = totalAvailable; }
         else { amount = totalTransport; }
 
-        if(amount == 0) { return; }
+        if (amount == 0) { return; }
 
         take.MoveDown(amount);
         receive.MoveUp(amount);
