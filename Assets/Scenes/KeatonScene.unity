@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 354759602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevel: 8
+  startLevel: 0
 --- !u!65 &354759605
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -921,7 +922,7 @@ Transform:
   m_GameObject: {fileID: 1600924827}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -940,6 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevel: 5
+  startLevel: 0
 --- !u!65 &1600924830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1252,7 +1254,7 @@ Transform:
   m_GameObject: {fileID: 1890311802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1271,6 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevel: 12
+  startLevel: 12
 --- !u!65 &1890311805
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1374,6 +1377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a60409c414229b42ae2e4dd5eacb627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fluidA: {fileID: 1890311804}
+  fluidB: {fileID: 354759604}
+  fluidC: {fileID: 1600924829}
 --- !u!65 &2084871198
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
             ""id"": ""1e5957d3-d710-465f-9966-acf14217a3aa"",
             ""actions"": [
                 {
-                    ""name"": ""GuageUp"",
+                    ""name"": ""AtoB"",
                     ""type"": ""Button"",
                     ""id"": ""693c69db-de9d-41de-b6aa-88759e3c7033"",
                     ""expectedControlType"": ""Button"",
@@ -37,7 +37,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GuageDown"",
+                    ""name"": ""AtoC"",
                     ""type"": ""Button"",
                     ""id"": ""9f5311fa-4699-4423-882b-59bb7d9e5fa8"",
                     ""expectedControlType"": ""Button"",
@@ -46,9 +46,36 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GuageReset"",
+                    ""name"": ""BtoA"",
+                    ""type"": ""Button"",
+                    ""id"": ""871a0629-4b99-48b2-b647-2213d18282f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BtoC"",
+                    ""type"": ""Button"",
+                    ""id"": ""1817a4df-2756-4f6d-aa9b-1704ab8eaad5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CtoA"",
                     ""type"": ""Button"",
                     ""id"": ""5b5f479b-ff42-41d2-a83c-f2c2d749ffa1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CtoB"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4af0945-7cf8-4125-9a63-676c386b4434"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -63,7 +90,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GuageUp"",
+                    ""action"": ""AtoB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -74,7 +101,29 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GuageDown"",
+                    ""action"": ""AtoC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a16e2274-87db-4b70-8997-66c4917c4079"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BtoA"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ceec9e95-99c1-4f19-badb-dd299660660a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BtoC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -85,7 +134,18 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GuageReset"",
+                    ""action"": ""CtoA"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5ad4ab6-58b1-469f-8b81-ee92752b0d73"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CtoB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -96,9 +156,12 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
 }");
         // Default
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
-        m_Default_GuageUp = m_Default.FindAction("GuageUp", throwIfNotFound: true);
-        m_Default_GuageDown = m_Default.FindAction("GuageDown", throwIfNotFound: true);
-        m_Default_GuageReset = m_Default.FindAction("GuageReset", throwIfNotFound: true);
+        m_Default_AtoB = m_Default.FindAction("AtoB", throwIfNotFound: true);
+        m_Default_AtoC = m_Default.FindAction("AtoC", throwIfNotFound: true);
+        m_Default_BtoA = m_Default.FindAction("BtoA", throwIfNotFound: true);
+        m_Default_BtoC = m_Default.FindAction("BtoC", throwIfNotFound: true);
+        m_Default_CtoA = m_Default.FindAction("CtoA", throwIfNotFound: true);
+        m_Default_CtoB = m_Default.FindAction("CtoB", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -160,16 +223,22 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
     // Default
     private readonly InputActionMap m_Default;
     private List<IDefaultActions> m_DefaultActionsCallbackInterfaces = new List<IDefaultActions>();
-    private readonly InputAction m_Default_GuageUp;
-    private readonly InputAction m_Default_GuageDown;
-    private readonly InputAction m_Default_GuageReset;
+    private readonly InputAction m_Default_AtoB;
+    private readonly InputAction m_Default_AtoC;
+    private readonly InputAction m_Default_BtoA;
+    private readonly InputAction m_Default_BtoC;
+    private readonly InputAction m_Default_CtoA;
+    private readonly InputAction m_Default_CtoB;
     public struct DefaultActions
     {
         private @KeyboardInput m_Wrapper;
         public DefaultActions(@KeyboardInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @GuageUp => m_Wrapper.m_Default_GuageUp;
-        public InputAction @GuageDown => m_Wrapper.m_Default_GuageDown;
-        public InputAction @GuageReset => m_Wrapper.m_Default_GuageReset;
+        public InputAction @AtoB => m_Wrapper.m_Default_AtoB;
+        public InputAction @AtoC => m_Wrapper.m_Default_AtoC;
+        public InputAction @BtoA => m_Wrapper.m_Default_BtoA;
+        public InputAction @BtoC => m_Wrapper.m_Default_BtoC;
+        public InputAction @CtoA => m_Wrapper.m_Default_CtoA;
+        public InputAction @CtoB => m_Wrapper.m_Default_CtoB;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -179,28 +248,46 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_DefaultActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_DefaultActionsCallbackInterfaces.Add(instance);
-            @GuageUp.started += instance.OnGuageUp;
-            @GuageUp.performed += instance.OnGuageUp;
-            @GuageUp.canceled += instance.OnGuageUp;
-            @GuageDown.started += instance.OnGuageDown;
-            @GuageDown.performed += instance.OnGuageDown;
-            @GuageDown.canceled += instance.OnGuageDown;
-            @GuageReset.started += instance.OnGuageReset;
-            @GuageReset.performed += instance.OnGuageReset;
-            @GuageReset.canceled += instance.OnGuageReset;
+            @AtoB.started += instance.OnAtoB;
+            @AtoB.performed += instance.OnAtoB;
+            @AtoB.canceled += instance.OnAtoB;
+            @AtoC.started += instance.OnAtoC;
+            @AtoC.performed += instance.OnAtoC;
+            @AtoC.canceled += instance.OnAtoC;
+            @BtoA.started += instance.OnBtoA;
+            @BtoA.performed += instance.OnBtoA;
+            @BtoA.canceled += instance.OnBtoA;
+            @BtoC.started += instance.OnBtoC;
+            @BtoC.performed += instance.OnBtoC;
+            @BtoC.canceled += instance.OnBtoC;
+            @CtoA.started += instance.OnCtoA;
+            @CtoA.performed += instance.OnCtoA;
+            @CtoA.canceled += instance.OnCtoA;
+            @CtoB.started += instance.OnCtoB;
+            @CtoB.performed += instance.OnCtoB;
+            @CtoB.canceled += instance.OnCtoB;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
         {
-            @GuageUp.started -= instance.OnGuageUp;
-            @GuageUp.performed -= instance.OnGuageUp;
-            @GuageUp.canceled -= instance.OnGuageUp;
-            @GuageDown.started -= instance.OnGuageDown;
-            @GuageDown.performed -= instance.OnGuageDown;
-            @GuageDown.canceled -= instance.OnGuageDown;
-            @GuageReset.started -= instance.OnGuageReset;
-            @GuageReset.performed -= instance.OnGuageReset;
-            @GuageReset.canceled -= instance.OnGuageReset;
+            @AtoB.started -= instance.OnAtoB;
+            @AtoB.performed -= instance.OnAtoB;
+            @AtoB.canceled -= instance.OnAtoB;
+            @AtoC.started -= instance.OnAtoC;
+            @AtoC.performed -= instance.OnAtoC;
+            @AtoC.canceled -= instance.OnAtoC;
+            @BtoA.started -= instance.OnBtoA;
+            @BtoA.performed -= instance.OnBtoA;
+            @BtoA.canceled -= instance.OnBtoA;
+            @BtoC.started -= instance.OnBtoC;
+            @BtoC.performed -= instance.OnBtoC;
+            @BtoC.canceled -= instance.OnBtoC;
+            @CtoA.started -= instance.OnCtoA;
+            @CtoA.performed -= instance.OnCtoA;
+            @CtoA.canceled -= instance.OnCtoA;
+            @CtoB.started -= instance.OnCtoB;
+            @CtoB.performed -= instance.OnCtoB;
+            @CtoB.canceled -= instance.OnCtoB;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -220,8 +307,11 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
     public DefaultActions @Default => new DefaultActions(this);
     public interface IDefaultActions
     {
-        void OnGuageUp(InputAction.CallbackContext context);
-        void OnGuageDown(InputAction.CallbackContext context);
-        void OnGuageReset(InputAction.CallbackContext context);
+        void OnAtoB(InputAction.CallbackContext context);
+        void OnAtoC(InputAction.CallbackContext context);
+        void OnBtoA(InputAction.CallbackContext context);
+        void OnBtoC(InputAction.CallbackContext context);
+        void OnCtoA(InputAction.CallbackContext context);
+        void OnCtoB(InputAction.CallbackContext context);
     }
 }

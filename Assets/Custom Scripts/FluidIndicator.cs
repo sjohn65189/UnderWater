@@ -1,58 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FluidIndicator : MonoBehaviour {
 
     public int maxLevel;
+    public int startLevel;
     private int level;
+    private int oldLevel;
     private float maxHeight;
+
+    public int GetLevel() { return level; }
+    public int GetEmptySpace() { return maxLevel - level; }
 
     // Start is called before the first frame update
     void Start() {
-        level = maxLevel;
+        level = startLevel;
+        oldLevel = level;
         maxHeight = transform.localScale.y;
+        UpdateWaterLevel(level);
     }
 
-    // Update is called once per frame
-    void Update() {
+    void Update() {}
 
-        //if gauge down was pressed, reduce level of water
-        if (Game.Instance.input.Default.GuageDown.WasPressedThisFrame() && level != 0) {
-            MoveDown(1);
-        }
-
-        //if guage up was pressed, increase level of water
-        else if (Game.Instance.input.Default.GuageUp.WasPressedThisFrame() && level != maxLevel) {
-            MoveUp(1);
-        }
-
-        //if guage reset was pressed, return to max level
-        else if (Game.Instance.input.Default.GuageReset.WasPressedThisFrame()) {
-            ResetLevel();
-        }
+    public void UpdateAnimation(float ani_cur_time) {
+        int diff = level - oldLevel;
+        float curHeight = oldLevel + diff * ani_cur_time;
+        UpdateWaterLevel(curHeight);
     }
 
-    private void MoveUp(int diff) {
+    public void MoveUp(int diff) {
+        oldLevel = level;
         level += diff;
-        UpdateWaterLevel();
     }
-    private void MoveDown(int diff) {
+    public void MoveDown(int diff) {
+        oldLevel = level;
         level -= diff;
-        UpdateWaterLevel();
     }
     private void ResetLevel() {
-        level = maxLevel;
-        UpdateWaterLevel();
+        oldLevel = level;
+        level = startLevel;
     }
 
-    void UpdateWaterLevel() {
+    void UpdateWaterLevel(float waterLevel) {
         var curVector = transform.localScale;
-        curVector.y = maxHeight * (float)level / (float)maxLevel;
+        curVector.y = maxHeight * waterLevel / (float)maxLevel;
         transform.localScale = curVector;
 
         curVector = transform.localPosition;
-        curVector.y = (maxHeight / (float)maxLevel * ((float)level - (float)maxLevel)) / 2;
+        curVector.y = (maxHeight / (float)maxLevel * (waterLevel - (float)maxLevel)) / 2;
         transform.localPosition = curVector;
+    }
+
+    public void LockWaterLevel() {
+        UpdateWaterLevel(level);
     }
 }

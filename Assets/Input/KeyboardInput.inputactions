@@ -6,7 +6,7 @@
             "id": "1e5957d3-d710-465f-9966-acf14217a3aa",
             "actions": [
                 {
-                    "name": "GuageUp",
+                    "name": "AtoB",
                     "type": "Button",
                     "id": "693c69db-de9d-41de-b6aa-88759e3c7033",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GuageDown",
+                    "name": "AtoC",
                     "type": "Button",
                     "id": "9f5311fa-4699-4423-882b-59bb7d9e5fa8",
                     "expectedControlType": "Button",
@@ -24,9 +24,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GuageReset",
+                    "name": "BtoA",
+                    "type": "Button",
+                    "id": "871a0629-4b99-48b2-b647-2213d18282f9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BtoC",
+                    "type": "Button",
+                    "id": "1817a4df-2756-4f6d-aa9b-1704ab8eaad5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CtoA",
                     "type": "Button",
                     "id": "5b5f479b-ff42-41d2-a83c-f2c2d749ffa1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CtoB",
+                    "type": "Button",
+                    "id": "f4af0945-7cf8-4125-9a63-676c386b4434",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -41,7 +68,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GuageUp",
+                    "action": "AtoB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +79,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GuageDown",
+                    "action": "AtoC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a16e2274-87db-4b70-8997-66c4917c4079",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BtoA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ceec9e95-99c1-4f19-badb-dd299660660a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BtoC",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -63,7 +112,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GuageReset",
+                    "action": "CtoA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5ad4ab6-58b1-469f-8b81-ee92752b0d73",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CtoB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
