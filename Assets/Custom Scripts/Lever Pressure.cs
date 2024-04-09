@@ -7,6 +7,7 @@ public class LeverPressure : MonoBehaviour
 {
     private Rigidbody leverBase;
     private bool hasReset;
+    private AudioSource leverAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,7 @@ public class LeverPressure : MonoBehaviour
         {
             Game.Instance.PressureReset();
         }
+        leverAudio.Play();
     }
 
     private void OnTriggerExit(Collider other)
