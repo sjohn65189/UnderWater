@@ -5,13 +5,6 @@ using UnityEngine;
 public class PumpPuzzle : MonoBehaviour
 {
 
-    //all fluid indicators set in inspector
-    public FluidIndicator fluidA;
-    public FluidIndicator fluidB;
-    public FluidIndicator fluidC;
-    public FluidIndicator fluidD;
-    public FluidIndicator fluidE;
-
     //put all of these in an array so they're easier to access
     public FluidIndicator[] column = new FluidIndicator[5];
 
@@ -27,13 +20,15 @@ public class PumpPuzzle : MonoBehaviour
     //fluid column currently receiving water
     private FluidIndicator receive;
 
-    //fill the column array upon startup
+    //becomes true once puzzle is completed
+    private bool completed = false;
+    public bool IsComplete() { return completed; }
+
+    public GameObject pumpCompletion;
+
+    //start
     void Start() {
-        column[0] = fluidA;
-        column[1] = fluidB;
-        column[2] = fluidC;
-        column[3] = fluidD;
-        column[4] = fluidE;
+    
     }
 
     //update handles the rising/falling animation of water
@@ -59,6 +54,11 @@ public class PumpPuzzle : MonoBehaviour
                 animationActive = false;
             }
             return;
+        }
+
+        if (column[0].GetLevel() == 3 && column[3].GetLevel() == 3 && column[4].GetLevel() == 6) {
+            completed = true;
+            pumpCompletion.SetActive(true);
         }
     }
 
