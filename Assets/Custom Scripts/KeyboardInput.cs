@@ -28,7 +28,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
             ""id"": ""1e5957d3-d710-465f-9966-acf14217a3aa"",
             ""actions"": [
                 {
-                    ""name"": ""AtoB"",
+                    ""name"": ""CycleTakeUp"",
                     ""type"": ""Button"",
                     ""id"": ""693c69db-de9d-41de-b6aa-88759e3c7033"",
                     ""expectedControlType"": ""Button"",
@@ -37,7 +37,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""AtoC"",
+                    ""name"": ""CycleTakeDown"",
                     ""type"": ""Button"",
                     ""id"": ""9f5311fa-4699-4423-882b-59bb7d9e5fa8"",
                     ""expectedControlType"": ""Button"",
@@ -46,7 +46,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""BtoA"",
+                    ""name"": ""CycleReceiveUp"",
                     ""type"": ""Button"",
                     ""id"": ""871a0629-4b99-48b2-b647-2213d18282f9"",
                     ""expectedControlType"": ""Button"",
@@ -55,7 +55,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""BtoC"",
+                    ""name"": ""CycleReceiveDown"",
                     ""type"": ""Button"",
                     ""id"": ""1817a4df-2756-4f6d-aa9b-1704ab8eaad5"",
                     ""expectedControlType"": ""Button"",
@@ -64,18 +64,9 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""CtoA"",
+                    ""name"": ""SendWater"",
                     ""type"": ""Button"",
-                    ""id"": ""5b5f479b-ff42-41d2-a83c-f2c2d749ffa1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CtoB"",
-                    ""type"": ""Button"",
-                    ""id"": ""f4af0945-7cf8-4125-9a63-676c386b4434"",
+                    ""id"": ""5c0a60e5-ee2f-42a4-9f1f-a35f26effccd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -90,7 +81,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AtoB"",
+                    ""action"": ""CycleTakeUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -101,7 +92,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AtoC"",
+                    ""action"": ""CycleTakeDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -112,7 +103,7 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""BtoA"",
+                    ""action"": ""CycleReceiveUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -123,29 +114,18 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""BtoC"",
+                    ""action"": ""CycleReceiveDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c13c7a5b-d72a-4652-b571-8003f0733d89"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""id"": ""65059221-580e-4f3f-8952-eedc4c5a348a"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CtoA"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c5ad4ab6-58b1-469f-8b81-ee92752b0d73"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CtoB"",
+                    ""action"": ""SendWater"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -156,12 +136,11 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
 }");
         // Default
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
-        m_Default_AtoB = m_Default.FindAction("AtoB", throwIfNotFound: true);
-        m_Default_AtoC = m_Default.FindAction("AtoC", throwIfNotFound: true);
-        m_Default_BtoA = m_Default.FindAction("BtoA", throwIfNotFound: true);
-        m_Default_BtoC = m_Default.FindAction("BtoC", throwIfNotFound: true);
-        m_Default_CtoA = m_Default.FindAction("CtoA", throwIfNotFound: true);
-        m_Default_CtoB = m_Default.FindAction("CtoB", throwIfNotFound: true);
+        m_Default_CycleTakeUp = m_Default.FindAction("CycleTakeUp", throwIfNotFound: true);
+        m_Default_CycleTakeDown = m_Default.FindAction("CycleTakeDown", throwIfNotFound: true);
+        m_Default_CycleReceiveUp = m_Default.FindAction("CycleReceiveUp", throwIfNotFound: true);
+        m_Default_CycleReceiveDown = m_Default.FindAction("CycleReceiveDown", throwIfNotFound: true);
+        m_Default_SendWater = m_Default.FindAction("SendWater", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -223,22 +202,20 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
     // Default
     private readonly InputActionMap m_Default;
     private List<IDefaultActions> m_DefaultActionsCallbackInterfaces = new List<IDefaultActions>();
-    private readonly InputAction m_Default_AtoB;
-    private readonly InputAction m_Default_AtoC;
-    private readonly InputAction m_Default_BtoA;
-    private readonly InputAction m_Default_BtoC;
-    private readonly InputAction m_Default_CtoA;
-    private readonly InputAction m_Default_CtoB;
+    private readonly InputAction m_Default_CycleTakeUp;
+    private readonly InputAction m_Default_CycleTakeDown;
+    private readonly InputAction m_Default_CycleReceiveUp;
+    private readonly InputAction m_Default_CycleReceiveDown;
+    private readonly InputAction m_Default_SendWater;
     public struct DefaultActions
     {
         private @KeyboardInput m_Wrapper;
         public DefaultActions(@KeyboardInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @AtoB => m_Wrapper.m_Default_AtoB;
-        public InputAction @AtoC => m_Wrapper.m_Default_AtoC;
-        public InputAction @BtoA => m_Wrapper.m_Default_BtoA;
-        public InputAction @BtoC => m_Wrapper.m_Default_BtoC;
-        public InputAction @CtoA => m_Wrapper.m_Default_CtoA;
-        public InputAction @CtoB => m_Wrapper.m_Default_CtoB;
+        public InputAction @CycleTakeUp => m_Wrapper.m_Default_CycleTakeUp;
+        public InputAction @CycleTakeDown => m_Wrapper.m_Default_CycleTakeDown;
+        public InputAction @CycleReceiveUp => m_Wrapper.m_Default_CycleReceiveUp;
+        public InputAction @CycleReceiveDown => m_Wrapper.m_Default_CycleReceiveDown;
+        public InputAction @SendWater => m_Wrapper.m_Default_SendWater;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -248,46 +225,40 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_DefaultActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_DefaultActionsCallbackInterfaces.Add(instance);
-            @AtoB.started += instance.OnAtoB;
-            @AtoB.performed += instance.OnAtoB;
-            @AtoB.canceled += instance.OnAtoB;
-            @AtoC.started += instance.OnAtoC;
-            @AtoC.performed += instance.OnAtoC;
-            @AtoC.canceled += instance.OnAtoC;
-            @BtoA.started += instance.OnBtoA;
-            @BtoA.performed += instance.OnBtoA;
-            @BtoA.canceled += instance.OnBtoA;
-            @BtoC.started += instance.OnBtoC;
-            @BtoC.performed += instance.OnBtoC;
-            @BtoC.canceled += instance.OnBtoC;
-            @CtoA.started += instance.OnCtoA;
-            @CtoA.performed += instance.OnCtoA;
-            @CtoA.canceled += instance.OnCtoA;
-            @CtoB.started += instance.OnCtoB;
-            @CtoB.performed += instance.OnCtoB;
-            @CtoB.canceled += instance.OnCtoB;
+            @CycleTakeUp.started += instance.OnCycleTakeUp;
+            @CycleTakeUp.performed += instance.OnCycleTakeUp;
+            @CycleTakeUp.canceled += instance.OnCycleTakeUp;
+            @CycleTakeDown.started += instance.OnCycleTakeDown;
+            @CycleTakeDown.performed += instance.OnCycleTakeDown;
+            @CycleTakeDown.canceled += instance.OnCycleTakeDown;
+            @CycleReceiveUp.started += instance.OnCycleReceiveUp;
+            @CycleReceiveUp.performed += instance.OnCycleReceiveUp;
+            @CycleReceiveUp.canceled += instance.OnCycleReceiveUp;
+            @CycleReceiveDown.started += instance.OnCycleReceiveDown;
+            @CycleReceiveDown.performed += instance.OnCycleReceiveDown;
+            @CycleReceiveDown.canceled += instance.OnCycleReceiveDown;
+            @SendWater.started += instance.OnSendWater;
+            @SendWater.performed += instance.OnSendWater;
+            @SendWater.canceled += instance.OnSendWater;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
         {
-            @AtoB.started -= instance.OnAtoB;
-            @AtoB.performed -= instance.OnAtoB;
-            @AtoB.canceled -= instance.OnAtoB;
-            @AtoC.started -= instance.OnAtoC;
-            @AtoC.performed -= instance.OnAtoC;
-            @AtoC.canceled -= instance.OnAtoC;
-            @BtoA.started -= instance.OnBtoA;
-            @BtoA.performed -= instance.OnBtoA;
-            @BtoA.canceled -= instance.OnBtoA;
-            @BtoC.started -= instance.OnBtoC;
-            @BtoC.performed -= instance.OnBtoC;
-            @BtoC.canceled -= instance.OnBtoC;
-            @CtoA.started -= instance.OnCtoA;
-            @CtoA.performed -= instance.OnCtoA;
-            @CtoA.canceled -= instance.OnCtoA;
-            @CtoB.started -= instance.OnCtoB;
-            @CtoB.performed -= instance.OnCtoB;
-            @CtoB.canceled -= instance.OnCtoB;
+            @CycleTakeUp.started -= instance.OnCycleTakeUp;
+            @CycleTakeUp.performed -= instance.OnCycleTakeUp;
+            @CycleTakeUp.canceled -= instance.OnCycleTakeUp;
+            @CycleTakeDown.started -= instance.OnCycleTakeDown;
+            @CycleTakeDown.performed -= instance.OnCycleTakeDown;
+            @CycleTakeDown.canceled -= instance.OnCycleTakeDown;
+            @CycleReceiveUp.started -= instance.OnCycleReceiveUp;
+            @CycleReceiveUp.performed -= instance.OnCycleReceiveUp;
+            @CycleReceiveUp.canceled -= instance.OnCycleReceiveUp;
+            @CycleReceiveDown.started -= instance.OnCycleReceiveDown;
+            @CycleReceiveDown.performed -= instance.OnCycleReceiveDown;
+            @CycleReceiveDown.canceled -= instance.OnCycleReceiveDown;
+            @SendWater.started -= instance.OnSendWater;
+            @SendWater.performed -= instance.OnSendWater;
+            @SendWater.canceled -= instance.OnSendWater;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -307,11 +278,10 @@ public partial class @KeyboardInput: IInputActionCollection2, IDisposable
     public DefaultActions @Default => new DefaultActions(this);
     public interface IDefaultActions
     {
-        void OnAtoB(InputAction.CallbackContext context);
-        void OnAtoC(InputAction.CallbackContext context);
-        void OnBtoA(InputAction.CallbackContext context);
-        void OnBtoC(InputAction.CallbackContext context);
-        void OnCtoA(InputAction.CallbackContext context);
-        void OnCtoB(InputAction.CallbackContext context);
+        void OnCycleTakeUp(InputAction.CallbackContext context);
+        void OnCycleTakeDown(InputAction.CallbackContext context);
+        void OnCycleReceiveUp(InputAction.CallbackContext context);
+        void OnCycleReceiveDown(InputAction.CallbackContext context);
+        void OnSendWater(InputAction.CallbackContext context);
     }
 }
