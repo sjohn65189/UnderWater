@@ -17,6 +17,6 @@ public class Lock : MonoBehaviour
     public void Open()
     {
         Door.SetActive(false);
-        Door2.SetActive(false);
+        Door2.SetActive(true);
     }
 }
