@@ -47,6 +47,10 @@ public class Timer : MonoBehaviour
 
             case TimerStateType.On:
                 txt.text = CurrentTime.ToString(@"mm\:ss");
+                if (CurrentTime.TotalSeconds <= 0.1)
+                {
+                    State = TimerStateType.Off; break;
+                }
                 CurrentTime = CurrentTime.Subtract(TimeSpan.FromSeconds(Time.deltaTime));
                 break;
         }
