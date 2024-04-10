@@ -964,7 +964,7 @@ MonoBehaviour:
   button: {fileID: 4205057275391639669}
   message: {fileID: 2567566078229320594}
   errorMessage: {fileID: 3473601563602748965}
-  door: {fileID: 3844928689804009688}
+  door: {fileID: 0}
 --- !u!114 &636629583340173754
 MonoBehaviour:
   m_ObjectHideFlags: 0
