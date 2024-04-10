@@ -1,6 +1,13 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+
+public enum GrabStateType
+{
+    LOCKED,
+    UNLOCKED
+}
+
 public class GrabbablePlacer : MonoBehaviour
 {
     public int pedestalNum;
@@ -8,9 +15,12 @@ public class GrabbablePlacer : MonoBehaviour
     private float timer = 0f;
     private bool valid = false;
 
+    public GrabStateType state { get; private set; }
+
     private void Awake()
     {
         invalidTxt = GameObject.Find("[] HUD Wrong Spot []");
+        state = GrabStateType.LOCKED;
     }
 
     // Start is called before the first frame update
@@ -34,6 +44,16 @@ public class GrabbablePlacer : MonoBehaviour
                 valid = false;
             }
         }
+
+        switch (state)
+        {
+            case GrabStateType.LOCKED:
+                break;
+            case GrabStateType.UNLOCKED:
+                Game.Instance.UnlockPressure();
+                break;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -114,7 +134,7 @@ public class GrabbablePlacer : MonoBehaviour
         // checks if puzzle is completed so the pressure puzzle will unlock
         if (Game.Instance.ped1 & Game.Instance.ped2 & Game.Instance.ped3)
         {
-            Game.Instance.UnlockPressure();
+            state = GrabStateType.UNLOCKED;
         }
     } 
 }
