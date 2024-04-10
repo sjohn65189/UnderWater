@@ -3504,7 +3504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81b1f1d1d434f64c8c04e933775be7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyLock: {fileID: 1047929144}
+  Door2: {fileID: 0}
+  Door: {fileID: 0}
 --- !u!1 &1163393125
 GameObject:
   m_ObjectHideFlags: 0
