@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8305580337777985466}
   - component: {fileID: 3309544666755685939}
   - component: {fileID: 2279499353366128844}
+  - component: {fileID: 2284795767967978434}
   m_Layer: 0
   m_Name: DoorWithHandle
   m_TagString: Untagged
@@ -109243,6 +109244,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3193538444861407090}
   m_Mesh: {fileID: 0}
+--- !u!95 &2284795767967978434
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193538444861407090}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23c139c61dab54db5ba3f54962e48b14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2095476784115180122
 PrefabInstance:
   m_ObjectHideFlags: 0
