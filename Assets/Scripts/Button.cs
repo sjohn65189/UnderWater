@@ -57,6 +57,11 @@ public class Button : MonoBehaviour
         {
             errorMessage.gameObject.SetActive(false); // deactivates the error message
         }
+/*
+        if (message.text == "HELPMEPLEASE") {
+
+        }
+*/
     }
 
     // dictionary containing the Morse Code chart
