@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum WaterStateType
 {
@@ -43,6 +44,9 @@ public class Water : MonoBehaviour
                 var myPos = RisingWater.transform.position;
                 myPos.y += 0.00000763f;
                 transform.position = myPos;
+                if (myPos.y == .9f) {
+                    SceneManager.LoadScene("DrownedScreen");
+                }
                 break;
 
             case WaterStateType.Lower:

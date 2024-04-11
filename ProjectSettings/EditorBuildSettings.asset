@@ -8,6 +8,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: a316d00e806b84cada7ae5e50864c432
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/DrownedScreen.unity
+    guid: a70d8a193253e41e687224d3c6c0991d
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/NoOxygenScreen.unity
+    guid: 1b03250f0adc6409a83312a079e2a4b2
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/StartScreen.unity
+    guid: 9e06e54881be847ceb229087282aafae
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/WinScreen.unity
+    guid: ff494822e31234b6c8247f3e49afb03b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

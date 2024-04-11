@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.XR;
 using System;
+using UnityEngine.SceneManagement;
 
 public enum TimerStateType
 {
@@ -50,7 +51,9 @@ public class Timer : MonoBehaviour
                 txt.text = CurrentTime.ToString(@"mm\:ss");
                 if (CurrentTime.TotalSeconds <= 0.1)
                 {
-                    State = TimerStateType.Off; break;
+                    State = TimerStateType.Off;
+                    SceneManager.LoadScene("NoOxygenScreen");
+                    break;
                 }
                 CurrentTime = CurrentTime.Subtract(TimeSpan.FromSeconds(Time.deltaTime));
                 break;
