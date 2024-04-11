@@ -44,8 +44,7 @@ public class Game : MonoBehaviour
 
         if (Pressure == 55)
         {
-           var drainDoor = DrainDoor.GetComponent<Door>();
-           drainDoor.Open();
+            DrainDoor.SetActive(false);
         }
     }
 
