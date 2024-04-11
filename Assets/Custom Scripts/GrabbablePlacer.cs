@@ -32,9 +32,7 @@ public class GrabbablePlacer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hitbox1.SetActive(false);
-        hitbox2.SetActive(false);
-        hitbox3.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -149,5 +147,13 @@ public class GrabbablePlacer : MonoBehaviour
         hitbox1.SetActive(true);
         hitbox2.SetActive(true);
         hitbox3.SetActive(true);
+    }
+
+    public void LockPuzzle()
+    {
+        print("Locking puzzle...");
+        hitbox1.SetActive(false);
+        hitbox2.SetActive(false);
+        hitbox3.SetActive(false);
     }
 }

@@ -47,6 +47,7 @@ public class PumpPuzzle : MonoBehaviour {
     private void Start()
     {
         gp = GameObject.Find("hitbox_manager").GetComponent<GrabbablePlacer>();
+        gp.LockPuzzle();
     }
 
     //update handles the rising/falling animation of water
