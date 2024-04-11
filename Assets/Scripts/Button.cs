@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // State Machine for the Wait time
@@ -57,11 +58,11 @@ public class Button : MonoBehaviour
         {
             errorMessage.gameObject.SetActive(false); // deactivates the error message
         }
-/*
-        if (message.text == "HELPMEPLEASE") {
 
+        if (message.text == "HELPMEPLEASE") {
+            SceneManager.LoadScene("WinScreen");
         }
-*/
+
     }
 
     // dictionary containing the Morse Code chart
