@@ -25,11 +25,28 @@ public class PumpUI : MonoBehaviour {
     public PumpUIText receDown;
     public PumpUIText go;
 
+    //power is activated after power button is pressed
+    private bool powerActivated = false;
+
     //complete state
     private bool complete = false;
 
     //click noise for pressing arrow buttons
     public AudioSource click;
+
+    /**calling activate power allows the buttons to be pressed and lights up the ui with color**/
+    public void ActivatePower() {
+        powerActivated = true;
+        title.ActivatePower();
+        ct.ActivatePower();
+        cr.ActivatePower();
+        arrow.ActivatePower();
+        takeUp.ActivatePower();
+        takeDown.ActivatePower();
+        receUp.ActivatePower();
+        receDown.ActivatePower();
+        go.ActivatePower();
+    }
 
     /**calling complete will set the state to complete as well as change
      * all UI elements to the color green**/
@@ -48,13 +65,13 @@ public class PumpUI : MonoBehaviour {
 
     /**calling go will send water from the "take" column to the "receive" column**/
     public void Go() {
-        if (complete || takeCol == receCol) { return; }
+        if (complete || !powerActivated || takeCol == receCol) { return; }
         pp.MoveWater(takeCol, receCol);
     }
 
     /**cycles the chosen "take" column up one (E>D>C>B>A)**/
     public void CycleTakeUp() {
-        if (complete) { return; }
+        if (complete || !powerActivated) { return; }
         if (takeCol != 0) { takeCol--; }
         ct.UpdateLetter(takeCol);
         click.Play();
@@ -62,7 +79,7 @@ public class PumpUI : MonoBehaviour {
 
     /**cycles the chosen "take" column down one (A>B>C>D>E)**/
     public void CycleTakeDown() {
-        if (complete) { return; }
+        if (complete || !powerActivated) { return; }
         if (takeCol != COLUMNS-1) { takeCol++; }
         ct.UpdateLetter(takeCol);
         click.Play();
@@ -70,7 +87,7 @@ public class PumpUI : MonoBehaviour {
 
     /**cycles the chosen "receive" column up one (E>D>C>B>A)**/
     public void CycleReceiveUp() {
-        if (complete) { return; }
+        if (complete || !powerActivated) { return; }
         if (receCol != 0) { receCol--; }
         cr.UpdateLetter(receCol);
         click.Play();
@@ -78,7 +95,7 @@ public class PumpUI : MonoBehaviour {
 
     /**cycles the chosen "receive" column down one (A>B>C>D>E)**/
     public void CycleReceiveDown() {
-        if (complete) { return; }
+        if (complete || !powerActivated) { return; }
         if (receCol != COLUMNS-1) { receCol++; }
         cr.UpdateLetter(receCol);
         click.Play();

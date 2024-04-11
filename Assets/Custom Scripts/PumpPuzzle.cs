@@ -19,6 +19,9 @@ public class PumpPuzzle : MonoBehaviour {
     //fluid column currently receiving water
     private FluidIndicator receive;
 
+    //becomes true once power button is pressed
+    private bool powerActivated = false;
+
     //becomes true once puzzle is completed
     private bool completed = false;
     public bool IsComplete() { return completed; }
@@ -42,6 +45,8 @@ public class PumpPuzzle : MonoBehaviour {
     void Update() {
 
         if (completed) { return; }
+
+        if (!powerActivated) { return; }
 
         //only calculate if animation is active
         if (animationActive) {
@@ -75,6 +80,12 @@ public class PumpPuzzle : MonoBehaviour {
             ding.Play();
             risingWater.Drain();
         }
+    }
+
+    /**power button has been pressed, so power is active**/
+    public void ActivatePower() {
+        powerActivated = true;
+        pumpUI.ActivatePower();
     }
 
     /**move water using integers for the columns**/

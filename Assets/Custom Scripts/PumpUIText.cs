@@ -5,9 +5,21 @@ using TMPro;
 
 public class PumpUIText : MonoBehaviour {
 
+    //colors used while inactive(gray) and completed(green)
+    private Color inactiveColor = new Color(0.1f, 0.1f, 0.1f, 1);
+    private Color completeColor = Color.green;
+
+    //color used while the player is solving the puzzle
+    public Color activeColor;
+
     //get the text component of this ui object
     private TextMeshPro txt;
-    void Start() { txt = GetComponent<TextMeshPro>(); }
+
+    /**start by grabbing the text, its material, and setting its color to gray**/
+    void Start() {
+        txt = GetComponent<TextMeshPro>();
+        txt.color = inactiveColor;
+    }
 
     /**set ui letter to A-E using integer 0-4**/
     public void UpdateLetter(int i) {
@@ -34,6 +46,9 @@ public class PumpUIText : MonoBehaviour {
         }
     }
 
+    /**set the color of the material to be what it should be while activated (set in inspector)**/
+    public void ActivatePower() { txt.color = activeColor; }
+
     /**set the color to green upon complete state**/
-    public void Complete() { txt.color = new Color(0, 1, 0, 1); }
+    public void Complete() { txt.color = completeColor; }
 }

@@ -41,7 +41,7 @@ public class Water : MonoBehaviour
 
             case WaterStateType.Rise:
                 var myPos = RisingWater.transform.position;
-                myPos.y += 0.00000463f;
+                myPos.y += 0.00000763f;
                 transform.position = myPos;
                 break;
 
