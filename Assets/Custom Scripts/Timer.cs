@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
 
-        CurrentTime = new(0, 30, 00);
+        CurrentTime = new(0, 10, 00);
         State = TimerStateType.Off;
         txt = GetComponent<TextMeshPro>();
         
