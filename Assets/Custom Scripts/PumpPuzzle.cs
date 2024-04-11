@@ -41,6 +41,9 @@ public class PumpPuzzle : MonoBehaviour {
     //rising water that gets drained after completion
     public Water risingWater;
 
+    //next puzzle that becomes accessible after this one is complete
+    public GrabbablePlacer gp;
+
     //update handles the rising/falling animation of water
     void Update() {
 
@@ -79,6 +82,7 @@ public class PumpPuzzle : MonoBehaviour {
             pumpCompletion.Complete();
             ding.Play();
             risingWater.Drain();
+            gp.UnlockPuzzle();
         }
     }
 
