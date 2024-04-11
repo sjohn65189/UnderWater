@@ -11,9 +11,12 @@ public enum GrabStateType
 public class GrabbablePlacer : MonoBehaviour
 {
     public int pedestalNum;
-    //private GameObject invalidTxt;
     private float timer = 0f;
     private bool valid = false;
+
+    private GameObject hitbox1;
+    private GameObject hitbox2;
+    private GameObject hitbox3;
 
     public GrabStateType State { get; private set; }
 
@@ -21,12 +24,17 @@ public class GrabbablePlacer : MonoBehaviour
     {
         //invalidTxt = GameObject.Find("[] HUD Wrong Spot []");
         State = GrabStateType.LOCKED;
+        hitbox1 = GameObject.Find("Pipe_Valve_Hitbox");
+        hitbox2 = GameObject.Find("Pipe_Plus_Hitbox");
+        hitbox3 = GameObject.Find("Pipe_T_Better_Hitbox");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //invalidTxt.SetActive(false);
+        hitbox1.SetActive(false);
+        hitbox2.SetActive(false);
+        hitbox3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,10 +66,7 @@ public class GrabbablePlacer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var hitbox1 = GameObject.Find("Pipe_Valve_Hitbox");
-        var hitbox2 = GameObject.Find("Pipe_Plus_Hitbox");
-        var hitbox3 = GameObject.Find("Pipe_T_Better_Hitbox");
-
+        
         var placeable1 = GameObject.Find("Pipe_Valve_Piece");
         var placeable2 = GameObject.Find("Pipe_Plus_Piece");
         var placeable3 = GameObject.Find("Pipe_T_Better_Piece");
@@ -136,5 +141,12 @@ public class GrabbablePlacer : MonoBehaviour
         {
             State = GrabStateType.UNLOCKED;
         }
-    } 
+    }
+    
+    public void UnlockPuzzle()
+    {
+        hitbox1.SetActive(true);
+        hitbox2.SetActive(true);
+        hitbox3.SetActive(true);
+    }
 }
