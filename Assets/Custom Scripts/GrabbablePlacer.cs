@@ -11,22 +11,22 @@ public enum GrabStateType
 public class GrabbablePlacer : MonoBehaviour
 {
     public int pedestalNum;
-    private GameObject invalidTxt;
+    //private GameObject invalidTxt;
     private float timer = 0f;
     private bool valid = false;
 
-    public GrabStateType state { get; private set; }
+    public GrabStateType State { get; private set; }
 
     private void Awake()
     {
-        invalidTxt = GameObject.Find("[] HUD Wrong Spot []");
-        state = GrabStateType.LOCKED;
+        //invalidTxt = GameObject.Find("[] HUD Wrong Spot []");
+        State = GrabStateType.LOCKED;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        invalidTxt.SetActive(false);
+        //invalidTxt.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,12 +40,12 @@ public class GrabbablePlacer : MonoBehaviour
         {
             if (valid)
             {
-                invalidTxt.SetActive(false);
+                //invalidTxt.SetActive(false);
                 valid = false;
             }
         }
 
-        switch (state)
+        switch (State)
         {
             case GrabStateType.LOCKED:
                 break;
@@ -58,20 +58,20 @@ public class GrabbablePlacer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var hitbox1 = GameObject.Find("Spot1Hitbox");
-        var hitbox2 = GameObject.Find("Spot2Hitbox");
-        var hitbox3 = GameObject.Find("Spot3Hitbox");
+        var hitbox1 = GameObject.Find("Pipe_Valve_Hitbox");
+        var hitbox2 = GameObject.Find("Pipe_Plus_Hitbox");
+        var hitbox3 = GameObject.Find("Pipe_T_Better_Hitbox");
 
-        var placeable1 = GameObject.Find("Piece1");
-        var placeable2 = GameObject.Find("Piece2");
-        var placeable3 = GameObject.Find("Piece3");
+        var placeable1 = GameObject.Find("Pipe_Valve_Piece");
+        var placeable2 = GameObject.Find("Pipe_Plus_Piece");
+        var placeable3 = GameObject.Find("Pipe_T_Better_Piece");
         
         // need to add more else if statements based on how many placement locations there are.
         if (pedestalNum == 1)
         {
             if (other.CompareTag("Placeable"))
             {
-                if (other.name == "Piece1")
+                if (other.name == "HorizontalPiece_Actual" | other.name == "VerticlePiece_Actual")
                 {
                     placeable1.transform.position = hitbox1.transform.position;
                     placeable1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -82,7 +82,7 @@ public class GrabbablePlacer : MonoBehaviour
                 else
                 {
                     print("Piece does not belong here!");
-                    invalidTxt.SetActive(true);
+                    //invalidTxt.SetActive(true);
                     timer = 1;
                     valid = true;
                 }
@@ -92,7 +92,7 @@ public class GrabbablePlacer : MonoBehaviour
         {
             if (other.CompareTag("Placeable"))
             {
-                if (other.name == "Piece2")
+                if (other.name == "Pipe_Plus_Piece")
                 {
                     placeable2.transform.position = hitbox2.transform.position;
                     placeable2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -103,7 +103,7 @@ public class GrabbablePlacer : MonoBehaviour
                 else
                 {
                     print("Piece does not belong here!");
-                    invalidTxt.SetActive(true);
+                    //invalidTxt.SetActive(true);
                     timer = 1;
                     valid = true;
                 }
@@ -113,7 +113,7 @@ public class GrabbablePlacer : MonoBehaviour
         {
             if (other.CompareTag("Placeable"))
             {
-                if (other.name == "Piece3")
+                if (other.name == "Pipe_T_Better_Piece")
                 {
                     placeable3.transform.position = hitbox3.transform.position;
                     placeable3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
@@ -124,7 +124,7 @@ public class GrabbablePlacer : MonoBehaviour
                 else
                 {
                     print("Piece does not belong here!");
-                    invalidTxt.SetActive(true);
+                    //invalidTxt.SetActive(true);
                     timer = 1;
                     valid = true;
                 }
@@ -134,7 +134,7 @@ public class GrabbablePlacer : MonoBehaviour
         // checks if puzzle is completed so the pressure puzzle will unlock
         if (Game.Instance.ped1 & Game.Instance.ped2 & Game.Instance.ped3)
         {
-            state = GrabStateType.UNLOCKED;
+            State = GrabStateType.UNLOCKED;
         }
     } 
 }
