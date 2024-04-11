@@ -6,6 +6,7 @@ using UnityEngine;
 public enum WaterStateType
 {
     Rise,
+    Lower,
     Stop,
 }
 
@@ -24,6 +25,12 @@ public class Water : MonoBehaviour
     {
         State = WaterStateType.Rise;
     }
+
+    public void Drain()
+    {
+        State = WaterStateType.Lower;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +44,14 @@ public class Water : MonoBehaviour
                 myPos.y += 0.00000463f;
                 transform.position = myPos;
                 break;
+
+            case WaterStateType.Lower:
+                var myPos2 = RisingWater.transform.position;
+                myPos2.y -= 0.01f;
+                transform.position = myPos2;
+                break;
+
+
         }
     }
 }
