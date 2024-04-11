@@ -145,6 +145,7 @@ public class GrabbablePlacer : MonoBehaviour
     
     public void UnlockPuzzle()
     {
+        print("Unlocking puzzle...");
         hitbox1.SetActive(true);
         hitbox2.SetActive(true);
         hitbox3.SetActive(true);

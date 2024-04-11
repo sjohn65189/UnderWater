@@ -42,7 +42,12 @@ public class PumpPuzzle : MonoBehaviour {
     public Water risingWater;
 
     //next puzzle that becomes accessible after this one is complete
-    public GrabbablePlacer gp;
+    private GrabbablePlacer gp;
+
+    private void Start()
+    {
+        gp = GameObject.Find("hitbox_manager").GetComponent<GrabbablePlacer>();
+    }
 
     //update handles the rising/falling animation of water
     void Update() {
