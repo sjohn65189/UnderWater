@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PumpPuzzle : MonoBehaviour
-{
+public class PumpPuzzle : MonoBehaviour {
 
     //put all of these in an array so they're easier to access
     public FluidIndicator[] column = new FluidIndicator[5];
@@ -24,15 +23,25 @@ public class PumpPuzzle : MonoBehaviour
     private bool completed = false;
     public bool IsComplete() { return completed; }
 
-    public GameObject pumpCompletion;
+    //pump ui controller, this is needed to turn off buttons when complete
+    public PumpUI pumpUI;
 
-    //start
-    void Start() {
-    
-    }
+    //indicator object for whether or not puzzle is complete. red=not, green=complete
+    public PumpPuzzleComplete pumpCompletion;
+
+    //victory audio sound (completed puzzle)
+    public AudioSource ding;
+
+    //water moving sound
+    public AudioSource splash;
+
+    //rising water that gets drained after completion
+    public Water risingWater;
 
     //update handles the rising/falling animation of water
     void Update() {
+
+        if (completed) { return; }
 
         //only calculate if animation is active
         if (animationActive) {
@@ -53,12 +62,18 @@ public class PumpPuzzle : MonoBehaviour
                 receive = null;
                 animationActive = false;
             }
+
+            //if in an animation, don't do anything else
             return;
         }
 
+        //if the puzzle is complete, switch everything to complete state
         if (column[0].GetLevel() == 3 && column[3].GetLevel() == 3 && column[4].GetLevel() == 6) {
+            pumpUI.Complete();
             completed = true;
-            pumpCompletion.SetActive(true);
+            pumpCompletion.Complete();
+            ding.Play();
+            risingWater.Drain();
         }
     }
 
@@ -88,5 +103,8 @@ public class PumpPuzzle : MonoBehaviour
         //begin animation
         animationActive = true;
         ani_tot_time = (float)amount * (float)ani_multiplier;
+
+        //play water splash sound
+        splash.Play();
     }
 }

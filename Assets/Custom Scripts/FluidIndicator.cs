@@ -64,9 +64,9 @@ public class FluidIndicator : MonoBehaviour {
         curVector.y = maxHeight * waterLevel / (float)maxLevel;
         transform.localScale = curVector;
 
-        curVector = transform.localPosition;
-        curVector.y = (maxHeight / (float)maxLevel * (waterLevel - (float)maxLevel)) / 2;
-        transform.localPosition = curVector;
+        //curVector = transform.localPosition;
+        //curVector.y = (maxHeight / (float)maxLevel * (waterLevel - (float)maxLevel)) / 2;
+        //transform.localPosition = curVector;
     }
 
     /**after an animation is done, ensures the physical water level is set to an integer (not a float)
